@@ -8,11 +8,13 @@ public class BudService
 {
     private readonly IMongoCollection<Bud> _BudCollection;
 
+    private readonly VaultService _vaultService;
+
     public BudService(
-        IOptions<BudDatabaseSettings> BudDatabaseSettings)
+        IOptions<BudDatabaseSettings> BudDatabaseSettings, VaultService vaultService)
     {
-        var mongoClient = new MongoClient(
-            BudDatabaseSettings.Value.ConnectionString);
+        _vaultService = vaultService;
+        var mongoClient = new MongoClient(vaultService.ConnectionString);
 
         var mongoDatabase = mongoClient.GetDatabase(
             BudDatabaseSettings.Value.DatabaseName);
