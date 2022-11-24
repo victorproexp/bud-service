@@ -6,35 +6,35 @@ namespace budAPI.Services;
 
 public class BudService : IBudService
 {
-    private readonly IMongoCollection<Bud> _BudCollection;
+    private readonly IMongoCollection<Bud> _budCollection;
 
     private readonly IVaultService _vaultService;
 
     public BudService(
-        IOptions<BudDatabaseSettings> BudDatabaseSettings, IVaultService vaultService)
+        IOptions<BudDatabaseSettings> budDatabaseSettings, IVaultService vaultService)
     {
         _vaultService = vaultService;
         var mongoClient = new MongoClient(vaultService.ConnectionString);
 
         var mongoDatabase = mongoClient.GetDatabase(
-            BudDatabaseSettings.Value.DatabaseName);
+            budDatabaseSettings.Value.DatabaseName);
 
-        _BudCollection = mongoDatabase.GetCollection<Bud>(
-            BudDatabaseSettings.Value.BudCollectionName);
+        _budCollection = mongoDatabase.GetCollection<Bud>(
+            budDatabaseSettings.Value.BudCollectionName);
     }
 
     public async Task<List<Bud>> GetAsync() =>
-        await _BudCollection.Find(_ => true).ToListAsync();
+        await _budCollection.Find(_ => true).ToListAsync();
 
     public async Task<Bud?> GetAsync(string id) =>
-        await _BudCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
+        await _budCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
 
     public async Task CreateAsync(Bud newBud) =>
-        await _BudCollection.InsertOneAsync(newBud);
+        await _budCollection.InsertOneAsync(newBud);
 
     public async Task UpdateAsync(string id, Bud updatedBud) =>
-        await _BudCollection.ReplaceOneAsync(x => x.Id == id, updatedBud);
+        await _budCollection.ReplaceOneAsync(x => x.Id == id, updatedBud);
 
     public async Task RemoveAsync(string id) =>
-        await _BudCollection.DeleteOneAsync(x => x.Id == id);
+        await _budCollection.DeleteOneAsync(x => x.Id == id);
 }
