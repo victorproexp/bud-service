@@ -4,14 +4,14 @@ using MongoDB.Driver;
 
 namespace budAPI.Services;
 
-public class BudService
+public class BudService : IBudService
 {
     private readonly IMongoCollection<Bud> _BudCollection;
 
-    private readonly VaultService _vaultService;
+    private readonly IVaultService _vaultService;
 
     public BudService(
-        IOptions<BudDatabaseSettings> BudDatabaseSettings, VaultService vaultService)
+        IOptions<BudDatabaseSettings> BudDatabaseSettings, IVaultService vaultService)
     {
         _vaultService = vaultService;
         var mongoClient = new MongoClient(vaultService.ConnectionString);

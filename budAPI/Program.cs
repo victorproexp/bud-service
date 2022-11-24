@@ -15,8 +15,8 @@ try
     builder.Services.Configure<BudDatabaseSettings>(
         builder.Configuration.GetSection("BudDatabase"));
     
-    builder.Services.AddSingleton<BudService>();
-    builder.Services.AddSingleton<VaultService>();
+    builder.Services.AddSingleton<IBudService, BudService>();
+    builder.Services.AddSingleton<IVaultService, VaultService>();
 
     builder.Services.AddControllers();
     // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

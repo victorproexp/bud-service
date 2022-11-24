@@ -10,9 +10,9 @@ public class BudController : ControllerBase
 {
     private readonly ILogger<BudController> _logger;
 
-    private readonly BudService _budService;
+    private readonly IBudService _budService;
 
-    public BudController(ILogger<BudController> logger, BudService budService)
+    public BudController(ILogger<BudController> logger, IBudService budService)
     {
         _logger = logger;
         _logger.LogDebug(1, "NLog injected into BudController");

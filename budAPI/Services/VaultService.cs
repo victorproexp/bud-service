@@ -4,7 +4,7 @@ using VaultSharp.V1.AuthMethods;
 using VaultSharp.V1.Commons;
 
 namespace budAPI.Services;
-public class VaultService
+public class VaultService : IVaultService
 {
     private readonly ILogger<VaultService> _logger;
  
@@ -21,7 +21,7 @@ public class VaultService
 
     public async Task Configure()
     {
-        var EndPoint = "https://vault:8201/";
+        var EndPoint = Environment.GetEnvironmentVariable("Vault");
         var httpClientHandler = new HttpClientHandler();
         httpClientHandler.ServerCertificateCustomValidationCallback =
             (message, cert, chain, sslPolicyErrors) => { return true; };
@@ -34,7 +34,7 @@ public class VaultService
         {
             Namespace = "",
             MyHttpClientProviderFunc = handler => new HttpClient(httpClientHandler) {
-                BaseAddress = new Uri(EndPoint)
+                BaseAddress = new Uri(EndPoint!)
             } 
         };
         IVaultClient vaultClient = new VaultClient(vaultClientSettings);
