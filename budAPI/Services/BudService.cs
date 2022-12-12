@@ -1,40 +1,55 @@
-using budAPI.Models;
-using Microsoft.Extensions.Options;
-using MongoDB.Driver;
+using System.Text.Json;
 
 namespace budAPI.Services;
 
 public class BudService : IBudService
 {
-    private readonly IMongoCollection<Bud> _budCollection;
+    private readonly ILogger<BudService> _logger;
+    private readonly IConnection _connection;
 
-    private readonly IVaultService _vaultService;
-
-    public BudService(
-        IOptions<BudDatabaseSettings> budDatabaseSettings, IVaultService vaultService)
+    public BudService(ILogger<BudService> logger, IConfiguration configuration)
     {
-        _vaultService = vaultService;
-        var mongoClient = new MongoClient(vaultService.ConnectionString);
+        _logger = logger;
 
-        var mongoDatabase = mongoClient.GetDatabase(
-            budDatabaseSettings.Value.DatabaseName);
+        var mqhostname = configuration["BudBrokerHost"];
 
-        _budCollection = mongoDatabase.GetCollection<Bud>(
-            budDatabaseSettings.Value.BudCollectionName);
+        if (String.IsNullOrEmpty(mqhostname))
+        {
+            mqhostname = "localhost";
+        }
+
+        _logger.LogInformation($"Using host at {mqhostname} for message broker");
+
+        var factory = new ConnectionFactory() { HostName = mqhostname };
+        _connection = factory.CreateConnection();
     }
 
-    public async Task<List<Bud>> GetAsync() =>
-        await _budCollection.Find(_ => true).ToListAsync();
+    public Task Send(Bud bud)
+    {
+        try
+        {
+            using (var channel = _connection.CreateModel())
+            {
+                channel.QueueDeclare(queue: "bud",
+                                    durable: false,
+                                    exclusive: false,
+                                    autoDelete: false,
+                                    arguments: null);
 
-    public async Task<Bud?> GetAsync(string id) =>
-        await _budCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
+                var body = JsonSerializer.SerializeToUtf8Bytes(bud);
 
-    public async Task CreateAsync(Bud newBud) =>
-        await _budCollection.InsertOneAsync(newBud);
+                channel.BasicPublish(exchange: "",
+                                    routingKey: "bud",
+                                    basicProperties: null,
+                                    body: body);
+            }
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex.Message);
+            return Task.FromException(ex);
+        }
 
-    public async Task UpdateAsync(string id, Bud updatedBud) =>
-        await _budCollection.ReplaceOneAsync(x => x.Id == id, updatedBud);
-
-    public async Task RemoveAsync(string id) =>
-        await _budCollection.DeleteOneAsync(x => x.Id == id);
+        return Task.CompletedTask;
+    }
 }

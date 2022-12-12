@@ -1,5 +1,3 @@
-using budAPI.Models;
-using budAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BudAPI.Controllers;
@@ -19,61 +17,17 @@ public class BudController : ControllerBase
         _budService = budService;
     }
 
-    [HttpGet]
-    public async Task<List<Bud>> Get() =>
-        await _budService.GetAsync();
-
-    [HttpGet("{id:length(24)}")]
-    public async Task<ActionResult<Bud>> Get(string id)
-    {
-        var Bud = await _budService.GetAsync(id);
-
-        if (Bud is null)
-        {
-            return NotFound();
-        }
-
-        return Bud;
-    }
-
     [HttpPost]
-    public async Task<IActionResult> Post(Bud newBud)
+    public Bud Post(Bud bud)
     {
-        await _budService.CreateAsync(newBud);
+        var res = _budService.Send(bud);
 
-        return CreatedAtAction(nameof(Get), new { id = newBud.Id }, newBud);
-    }
-
-    [HttpPut("{id:length(24)}")]
-    public async Task<IActionResult> Update(string id, Bud updatedBud)
-    {
-        var Bud = await _budService.GetAsync(id);
-
-        if (Bud is null)
+        if (res.IsFaulted)
         {
-            return NotFound();
+            return null!;
         }
 
-        updatedBud.Id = Bud.Id;
-
-        await _budService.UpdateAsync(id, updatedBud);
-
-        return NoContent();
-    }
-
-    [HttpDelete("{id:length(24)}")]
-    public async Task<IActionResult> Delete(string id)
-    {
-        var Bud = await _budService.GetAsync(id);
-
-        if (Bud is null)
-        {
-            return NotFound();
-        }
-
-        await _budService.RemoveAsync(id);
-
-        return NoContent();
+        return bud;
     }
 
     [HttpGet("version")]

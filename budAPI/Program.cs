@@ -1,8 +1,9 @@
+global using budAPI.Models;
+global using budAPI.Services;
+global using RabbitMQ.Client;
 using NLog;
 using NLog.Web;
 using Microsoft.OpenApi.Models;
-using budAPI.Models;
-using budAPI.Services;
 
 var logger = NLog.LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
 logger.Debug("init main");
@@ -11,12 +12,8 @@ try
 {
     var builder = WebApplication.CreateBuilder(args);
 
-    // Add services to the container.
-    builder.Services.Configure<BudDatabaseSettings>(
-        builder.Configuration.GetSection("BudDatabase"));
-    
+    // Add services to the container.    
     builder.Services.AddSingleton<IBudService, BudService>();
-    builder.Services.AddSingleton<IVaultService, VaultService>();
 
     builder.Services.AddControllers();
     // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
