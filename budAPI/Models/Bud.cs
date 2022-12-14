@@ -5,9 +5,7 @@ namespace budAPI.Models;
 
 public class Bud
 {
-    [BsonId]
-    [BsonRepresentation(BsonType.ObjectId)]
-    public string? Id { get; set; }
+    public Guid Id { get; set; } = Guid.NewGuid();
 
     public string? VareId { get; set; }
 
@@ -15,5 +13,5 @@ public class Bud
 
     public int Value { get; set; }
 
-    public DateTime Tidsstempel { get; set; }
+    public DateTime Tidsstempel { get; set; } = DateTime.Now;
 }
