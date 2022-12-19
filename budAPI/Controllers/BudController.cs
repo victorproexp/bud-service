@@ -18,8 +18,11 @@ public class BudController : ControllerBase
     }
 
     [HttpPost]
-    public Bud Post(Bud bud)
+    public BudDto Post(BudDto bud)
     {
+        _logger.LogInformation("Post called at {DT}",
+            DateTime.UtcNow.ToLongTimeString());
+
         var res = _budService.Send(bud);
 
         if (res.IsFaulted)

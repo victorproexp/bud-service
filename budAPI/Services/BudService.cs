@@ -24,7 +24,7 @@ public class BudService : IBudService
         _connection = factory.CreateConnection();
     }
 
-    public Task Send(Bud bud)
+    public Task Send(BudDto budDto)
     {
         try
         {
@@ -35,6 +35,8 @@ public class BudService : IBudService
                                     exclusive: false,
                                     autoDelete: false,
                                     arguments: null);
+
+                Bud bud = Map(budDto);
 
                 var body = JsonSerializer.SerializeToUtf8Bytes(bud);
 
@@ -51,5 +53,16 @@ public class BudService : IBudService
         }
 
         return Task.CompletedTask;
+    }
+
+    private Bud Map(BudDto newBud)
+    {
+        Bud bud = new() {
+            VareId = newBud.VareId,
+            KundeId = newBud.KundeId,
+            Value = newBud.Value
+        };
+
+        return bud;
     }
 }

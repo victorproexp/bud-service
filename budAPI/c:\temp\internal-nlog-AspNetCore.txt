@@ -88,3 +88,73 @@
 2022-12-14 17:50:38.1348 Info Shutdown() called. Logger closing...
 2022-12-14 17:50:38.1358 Info Closing old configuration.
 2022-12-14 17:50:38.1501 Info Logger has been closed down.
+2022-12-16 10:06:37.1659 Info Message Template Auto Format enabled
+2022-12-16 10:06:37.2544 Info Loading assembly: NLog.Web.AspNetCore
+2022-12-16 10:06:37.3447 Info Adding target FileTarget(Name=allfile)
+2022-12-16 10:06:37.3473 Info Adding target FileTarget(Name=ownFile-web)
+2022-12-16 10:06:37.3483 Info Adding target ConsoleTarget(Name=lifetimeConsole)
+2022-12-16 10:06:37.5836 Info Validating config: TargetNames=allfile, lifetimeConsole, ownFile-web, ConfigItems=56, FilePath=/Users/victorpascale/Documents/GitHub/bud-service/budAPI/bin/Debug/net6.0/NLog.config
+2022-12-16 10:06:38.2474 Info Validating config: TargetNames=allfile, lifetimeConsole, ownFile-web, ConfigItems=56, FilePath=/Users/victorpascale/Documents/GitHub/bud-service/budAPI/bin/Debug/net6.0/NLog.config
+2022-12-16 10:20:02.7004 Info Shutdown() called. Logger closing...
+2022-12-16 10:20:02.7025 Info Closing old configuration.
+2022-12-16 10:20:02.7172 Info Logger has been closed down.
+2022-12-16 10:26:20.8435 Info Message Template Auto Format enabled
+2022-12-16 10:26:20.9100 Info Loading assembly: NLog.Web.AspNetCore
+2022-12-16 10:26:20.9582 Info Adding target FileTarget(Name=allfile)
+2022-12-16 10:26:20.9602 Info Adding target FileTarget(Name=ownFile-web)
+2022-12-16 10:26:20.9606 Info Adding target ConsoleTarget(Name=lifetimeConsole)
+2022-12-16 10:26:21.0299 Info Validating config: TargetNames=allfile, lifetimeConsole, ownFile-web, ConfigItems=56, FilePath=/Users/victorpascale/Documents/GitHub/bud-service/budAPI/bin/Debug/net6.0/NLog.config
+2022-12-16 10:26:21.3228 Info Validating config: TargetNames=allfile, lifetimeConsole, ownFile-web, ConfigItems=56, FilePath=/Users/victorpascale/Documents/GitHub/bud-service/budAPI/bin/Debug/net6.0/NLog.config
+2022-12-16 10:28:52.4231 Info Shutdown() called. Logger closing...
+2022-12-16 10:28:52.4242 Info Closing old configuration.
+2022-12-16 10:28:52.4478 Info Logger has been closed down.
+2022-12-16 10:29:01.1047 Info Message Template Auto Format enabled
+2022-12-16 10:29:01.1597 Info Loading assembly: NLog.Web.AspNetCore
+2022-12-16 10:29:01.2118 Info Adding target FileTarget(Name=allfile)
+2022-12-16 10:29:01.2134 Info Adding target FileTarget(Name=ownFile-web)
+2022-12-16 10:29:01.2141 Info Adding target ConsoleTarget(Name=lifetimeConsole)
+2022-12-16 10:29:01.3096 Info Validating config: TargetNames=allfile, lifetimeConsole, ownFile-web, ConfigItems=56, FilePath=/Users/victorpascale/Documents/GitHub/bud-service/budAPI/bin/Debug/net6.0/NLog.config
+2022-12-16 10:29:01.5579 Info Validating config: TargetNames=allfile, lifetimeConsole, ownFile-web, ConfigItems=56, FilePath=/Users/victorpascale/Documents/GitHub/bud-service/budAPI/bin/Debug/net6.0/NLog.config
+2022-12-16 10:32:50.6379 Info Shutdown() called. Logger closing...
+2022-12-16 10:32:50.6389 Info Closing old configuration.
+2022-12-16 10:32:50.6520 Info Logger has been closed down.
+2022-12-16 10:32:58.2549 Info Message Template Auto Format enabled
+2022-12-16 10:32:58.2997 Info Loading assembly: NLog.Web.AspNetCore
+2022-12-16 10:32:58.3495 Info Adding target FileTarget(Name=allfile)
+2022-12-16 10:32:58.3519 Info Adding target FileTarget(Name=ownFile-web)
+2022-12-16 10:32:58.3519 Info Adding target ConsoleTarget(Name=lifetimeConsole)
+2022-12-16 10:32:58.4493 Info Validating config: TargetNames=allfile, lifetimeConsole, ownFile-web, ConfigItems=56, FilePath=/Users/victorpascale/Documents/GitHub/bud-service/budAPI/bin/Debug/net6.0/NLog.config
+2022-12-16 10:32:58.6817 Info Validating config: TargetNames=allfile, lifetimeConsole, ownFile-web, ConfigItems=56, FilePath=/Users/victorpascale/Documents/GitHub/bud-service/budAPI/bin/Debug/net6.0/NLog.config
+2022-12-16 11:13:10.4903 Info Shutdown() called. Logger closing...
+2022-12-16 11:13:10.4929 Info Closing old configuration.
+2022-12-16 11:13:10.5126 Info Logger has been closed down.
+2022-12-16 13:59:19.0295 Info Message Template Auto Format enabled
+2022-12-16 13:59:19.0914 Info Loading assembly: NLog.Web.AspNetCore
+2022-12-16 13:59:19.1485 Info Adding target FileTarget(Name=allfile)
+2022-12-16 13:59:19.1498 Info Adding target FileTarget(Name=ownFile-web)
+2022-12-16 13:59:19.1503 Info Adding target ConsoleTarget(Name=lifetimeConsole)
+2022-12-16 13:59:19.2694 Info Validating config: TargetNames=allfile, lifetimeConsole, ownFile-web, ConfigItems=56, FilePath=/Users/victorpascale/Documents/GitHub/bud-service/budAPI/bin/Debug/net6.0/NLog.config
+2022-12-16 13:59:19.8697 Info Validating config: TargetNames=allfile, lifetimeConsole, ownFile-web, ConfigItems=56, FilePath=/Users/victorpascale/Documents/GitHub/bud-service/budAPI/bin/Debug/net6.0/NLog.config
+2022-12-16 14:57:35.1077 Info Shutdown() called. Logger closing...
+2022-12-16 14:57:35.1165 Info Closing old configuration.
+2022-12-16 14:57:35.1491 Info Logger has been closed down.
+2022-12-16 14:57:45.1797 Info Message Template Auto Format enabled
+2022-12-16 14:57:45.2233 Info Loading assembly: NLog.Web.AspNetCore
+2022-12-16 14:57:45.2812 Info Adding target FileTarget(Name=allfile)
+2022-12-16 14:57:45.2836 Info Adding target FileTarget(Name=ownFile-web)
+2022-12-16 14:57:45.2845 Info Adding target ConsoleTarget(Name=lifetimeConsole)
+2022-12-16 14:57:45.4022 Info Validating config: TargetNames=allfile, lifetimeConsole, ownFile-web, ConfigItems=56, FilePath=/Users/victorpascale/Documents/GitHub/bud-service/budAPI/bin/Debug/net6.0/NLog.config
+2022-12-16 14:57:45.6819 Info Validating config: TargetNames=allfile, lifetimeConsole, ownFile-web, ConfigItems=56, FilePath=/Users/victorpascale/Documents/GitHub/bud-service/budAPI/bin/Debug/net6.0/NLog.config
+2022-12-16 14:57:47.4664 Info Shutdown() called. Logger closing...
+2022-12-16 14:57:47.4670 Info Closing old configuration.
+2022-12-16 14:57:47.4835 Info Logger has been closed down.
+2022-12-17 11:53:28.0560 Info Message Template Auto Format enabled
+2022-12-17 11:53:28.1094 Info Loading assembly: NLog.Web.AspNetCore
+2022-12-17 11:53:28.1701 Info Adding target FileTarget(Name=allfile)
+2022-12-17 11:53:28.1718 Info Adding target FileTarget(Name=ownFile-web)
+2022-12-17 11:53:28.1718 Info Adding target ConsoleTarget(Name=lifetimeConsole)
+2022-12-17 11:53:28.2866 Info Validating config: TargetNames=allfile, lifetimeConsole, ownFile-web, ConfigItems=56, FilePath=/Users/victorpascale/Documents/GitHub/bud-service/budAPI/bin/Debug/net6.0/NLog.config
+2022-12-17 11:53:28.5887 Info Validating config: TargetNames=allfile, lifetimeConsole, ownFile-web, ConfigItems=56, FilePath=/Users/victorpascale/Documents/GitHub/bud-service/budAPI/bin/Debug/net6.0/NLog.config
+2022-12-17 15:07:08.4176 Info Shutdown() called. Logger closing...
+2022-12-17 15:07:08.4250 Info Closing old configuration.
+2022-12-17 15:07:08.4643 Info Logger has been closed down.
