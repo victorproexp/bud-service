@@ -188,3 +188,31 @@
 2022-12-20 12:24:58.4912 Info Shutdown() called. Logger closing...
 2022-12-20 12:24:58.4922 Info Closing old configuration.
 2022-12-20 12:24:58.5045 Info Logger has been closed down.
+2022-12-20 12:53:09.4244 Info Message Template Auto Format enabled
+2022-12-20 12:53:09.4724 Info Loading assembly: NLog.Web.AspNetCore
+2022-12-20 12:53:09.4748 Info Loading assembly: NLog.Loki
+2022-12-20 12:53:09.4824 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Error loading extensions: NLog.Loki
+ ---> System.IO.FileNotFoundException: Could not load file or assembly 'NLog.Loki, Culture=neutral, PublicKeyToken=null'. The system cannot find the file specified.
+
+File name: 'NLog.Loki, Culture=neutral, PublicKeyToken=null'
+   at System.Reflection.RuntimeAssembly.InternalLoad(ObjectHandleOnStack assemblyName, ObjectHandleOnStack requestingAssembly, StackCrawlMarkHandle stackMark, Boolean throwOnFileNotFound, ObjectHandleOnStack assemblyLoadContext, ObjectHandleOnStack retAssembly)
+   at System.Reflection.RuntimeAssembly.InternalLoad(AssemblyName assemblyName, RuntimeAssembly requestingAssembly, StackCrawlMark& stackMark, Boolean throwOnFileNotFound, AssemblyLoadContext assemblyLoadContext)
+   at System.Reflection.Assembly.Load(String assemblyString)
+   at NLog.Internal.AssemblyHelpers.LoadFromName(String assemblyName)
+   at NLog.Config.LoggingConfigurationParser.ParseExtensionWithAssembly(String assemblyName, String prefix)
+   --- End of inner exception stack trace ---
+2022-12-20 12:53:09.5619 Info Adding target FileTarget(Name=allfile)
+2022-12-20 12:53:09.5636 Info Adding target FileTarget(Name=ownFile-web)
+2022-12-20 12:53:09.5641 Info Adding target ConsoleTarget(Name=console)
+2022-12-20 12:53:09.5641 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target of type: loki
+ ---> System.ArgumentException: Target type-alias is unknown: 'loki'
+   at NLog.Config.Factory`2.CreateInstance(String itemName)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String classType, INamedItemFactory`2 factory)
+   --- End of inner exception stack trace ---
+2022-12-20 12:53:09.5736 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'lifetimeConsole' not found for logging rule: Microsoft.Hosting.Lifetime.
+2022-12-20 12:53:09.5736 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'loki' not found for logging rule: *.
+2022-12-20 12:53:09.6353 Info Validating config: TargetNames=allfile, ownFile-web, console, ConfigItems=64, FilePath=/Users/victorpascale/Documents/GitHub/bud-service/budAPI/bin/Debug/net6.0/NLog.config
+2022-12-20 12:53:09.9238 Info Validating config: TargetNames=allfile, ownFile-web, console, ConfigItems=64, FilePath=/Users/victorpascale/Documents/GitHub/bud-service/budAPI/bin/Debug/net6.0/NLog.config
+2022-12-20 12:57:29.1697 Info Shutdown() called. Logger closing...
+2022-12-20 12:57:29.1717 Info Closing old configuration.
+2022-12-20 12:57:29.1929 Info Logger has been closed down.
