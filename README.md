@@ -1,4 +1,4 @@
-# auktion-service
+# bud-service
 
 Guide til at bruge auktionshuset
 
